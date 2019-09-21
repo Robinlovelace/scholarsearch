@@ -1,0 +1,32 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# scholarsearch
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+```{r, eval=FALSE}
+remotes::install_github("robinlovelace/scholarsearch")
+```
+
+
+```{r}
+search_url = scholarsearch::scholarsearch(query = "bikeshare data analysis equity",
+                                          source = "transportation research part A",
+                                          as_ylo = 2019)
+webshot::webshot(search_url)
+```
+
