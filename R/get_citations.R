@@ -9,8 +9,14 @@
 #' res
 scholar_get_citations = function(u) {
   html = xml2::read_html(u)
-  titles = rvest::html_nodes(html, ".gs_rt a")
+  titles = rvest::html_nodes(html, ".gs_rt")
   titles_text = rvest::html_text(titles)
+  titles_text = gsub(pattern = "\\[B\\]", replacement = "", titles_text)
+  titles_text = gsub(pattern = "\\[BOOK\\]", replacement = "", titles_text)
+  titles_text = gsub(pattern = "\\[CITATION\\]", replacement = "", titles_text)
+  titles_text = gsub(pattern = "\\[C\\]", replacement = "", titles_text)
+  titles_text = gsub(pattern = "\\[PDF\\]", replacement = "", titles_text)
+  titles_text = stringr::str_trim(titles_text)
   author_source = rvest::html_nodes(html, ".gs_a") # author, source
   as_text = rvest::html_text(author_source)
   authors = stringr::str_extract(string = as_text, pattern = "[^-]+")

@@ -53,7 +53,11 @@ scholarurl = function(query) {
 #' @param u Base URL
 #'
 #' @examples
-#' scholar_get(query = '"open+source"+"transport+planning"')
+#' res1 = scholar_get(query = '"open+source"+"transport+planning"')
+#' res1
+#' res2 = scholar_get("this-query-will-generate-no-results", 1900, 1900)
+#' rbind(res1, res2)
+#' scholar_get('"geographic+analysis"+"transport+planning"', 2012, 2012)
 #' @export
 scholar_get = function(query = NULL,
                          as_ylo = NULL,
